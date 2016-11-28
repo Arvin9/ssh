@@ -11,7 +11,19 @@
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+    <!-- 配置Action类 -->
+    <bean id="productAction" class="site.nebulas.action.ProductAction" scope="prototype">
+        <!-- 手动注入Servuce -->
+        <property name="productService" ref="productService"/>
+    </bean>
+    <!-- 配置业务层的类 -->
+    <bean id="productService" class="site.nebulas.service.ProductService">
+        <property name="productDao" ref="productDao"/>
+    </bean>
 
-	
+    <!-- 配置DAO的类 -->
+    <bean id="productDao" class="site.nebulas.dao.ProductDao">
+
+    </bean>
 </beans>
 

@@ -9,3 +9,4 @@ lib/
 *.log*
 *logs/
 *bin/
+*web/

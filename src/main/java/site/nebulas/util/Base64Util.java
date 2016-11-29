@@ -8,13 +8,13 @@ import java.io.IOException;
 /**
  * Created by Administrator on 2016/11/28.
  */
-public class Base64 {
+public class Base64Util {
     public static void main(String[] args) {
         String str = "this is base64";
-        String temp = Base64.encode(str);
+        String temp = Base64Util.encode(str);
         System.out.println(temp);
 
-        System.out.println(Base64.decode(temp));
+        System.out.println(Base64Util.decode(temp));
     }
 
     /**

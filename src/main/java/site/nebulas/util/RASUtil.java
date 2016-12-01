@@ -1,3 +1,5 @@
+package site.nebulas.util;
+
 import java.security.KeyFactory;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -7,10 +9,7 @@ import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import java.util.Base64;
-
 import javax.crypto.Cipher;
-
 
 
 public class RASUtil {
@@ -42,9 +41,9 @@ public class RASUtil {
 		     //初始化加密  
 		     cipher.init(Cipher.ENCRYPT_MODE,privateKey);  
 		     byte[] result = cipher.doFinal(src.getBytes());  
-		     System.out.println("私钥加密，公钥解密----加密:"+Base64.getEncoder().encodeToString(result));  
-		       
-		       
+		     System.out.println("私钥加密，公钥解密----加密:"+ Base64Util.encode(new String(result)));
+
+
 		     //3.私钥加密，公钥解密----解密  
 		     //生成公钥  
 		     X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(rsaPublicKey.getEncoded());  

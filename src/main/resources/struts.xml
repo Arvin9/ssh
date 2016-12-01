@@ -10,6 +10,9 @@
 			<result name="success">/jsp/hello.jsp</result>
 		</action>
 
+		<action name="main" class="site.nebulas.action.HelloAction">
+			<result name="success">/jsp/main.jsp</result>
+		</action>
 	</package>
 </struts>
 

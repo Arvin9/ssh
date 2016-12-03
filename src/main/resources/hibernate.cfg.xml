@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!--声明Hibernate配置文件的开始-->
+<hibernate-configuration>
+    <!--表明以下的配置是针对session-factory配置的，SessionFactory是Hibernate中的一个类，这个类主要负责保存HIbernate的配置信息，以及对Session的操作-->
+    <session-factory>
+        <!--配置数据库的驱动程序，Hibernate在连接数据库时，需要用到数据库的驱动程序-->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <!--设置数据库的连接url:jdbc:mysql://localhost/hibernate,其中localhost表示mysql服务器名称，此处为本机，hibernate是数据库名-->
+        <property name="connection.url">
+            jdbc:mysql://115.29.52.104:3306/ssh?useUnicode=true&amp;characterEncoding=utf8
+        </property>
+        <!--连接数据库是用户名-->
+        <property name="connection.username">nebula</property>
+        <!--连接数据库是密码-->
+        <property name="connection.password">314159</property>
+        <!--数据库连接池的大小-->
+        <property name="hibernate.connection.pool.size">20</property>
+
+        <!-- 显示SQL语句 -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <!--
+               create：每次加载hibernate时都会删除上一次的生成的表，然后根据你的model类再重新来生成新表
+               create-drop：每次加载hibernate时根据model类生成表，但是sessionFactory一关闭,表就自动删除。
+               update：最常用的属性，第一次加载hibernate时根据model类会自动建立起表的结构（前提是先建立好数据库），以后加载hibernate时根据 model类自动更新表结构，即使表结构改变了但表中的行仍然存在不会删除以前的行。
+        -->
+        <property name="hbm2ddl.auto">update</property>
+        <!-- 定义方言 -->
+        <property name="dialect">
+            org.hibernate.dialect.MySQLDialect
+        </property>
+
+        <!--指定映射文件为“site/nebulas/bean/User.hbm.xml”-->
+        <mapping resource="site/nebulas/bean/User.hbm.xml"></mapping>
+
+    </session-factory>
+
+</hibernate-configuration>

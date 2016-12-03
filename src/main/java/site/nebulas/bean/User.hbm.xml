@@ -21,7 +21,7 @@
         optimistic-lock="version"：默认为version(检查version/timestamp字段)，取值：all(检查全部字段)、dirty(只检查修改过的字段)、    
                                    none(不使用乐观锁定)，此参数主要用来处理并发，每条值都有固定且唯一的版本，版本为最新时才能执行操作；    
      -->
-    <class name="site.nebulas.bean.User" table="user" dynamic-insert="true" dynamic-update="true" optimistic-lock="version">
+    <class name="site.nebulas.bean.User" table="user" dynamic-insert="true" dynamic-update="true" optimistic-lock="version" lazy="false">
 
         <!--     
             <id>：定义了该属性到数据库表主键字段的映射。    

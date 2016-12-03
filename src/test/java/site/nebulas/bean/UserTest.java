@@ -15,6 +15,7 @@ import site.nebulas.bean.User;
  * Created by Administrator on 2016/12/3.
  */
 public class UserTest {
+    /*
     private SessionFactory sessionFactory;
     private Session session;
     private Transaction transaction;
@@ -44,5 +45,5 @@ public class UserTest {
         User user = new User(1,"nebula","123456","2016-12-03 20:32:11");
         session.save(user);
     }
-
+*/
 }

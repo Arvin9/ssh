@@ -26,10 +26,4 @@ public class HelloAction extends ActionSupport{
         System.out.println("hahah");
         return SUCCESS;
     }
-    @Action(value = "login", results = { @Result(name = "success", location = "/jsp/main.jsp") })
-    public String login() throws Exception {
-
-        log.info("login");
-        return SUCCESS;
-    }
 }

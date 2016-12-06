@@ -1,8 +1,11 @@
 package site.nebulas.bean;
 
+import javax.persistence.*;
+
 /**
  * Created by Administrator on 2016/12/3.
  */
+@Entity(name = "user")
 public class User {
     /**
      * 1.共有的类
@@ -10,10 +13,14 @@ public class User {
      * 3.属性私有
      * 4.属性设置setter/getter封装
      * */
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;//用户id
+    @Column(length = 20)
     private String name;//用户名
+    @Column(length = 32)
     private String password;//密码
+    @Column(length = 20)
     private String createTime;//用户创建时间
 
     public User() {

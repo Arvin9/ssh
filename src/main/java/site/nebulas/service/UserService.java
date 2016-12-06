@@ -15,6 +15,11 @@ public class UserService {
     private UserDao userDao;
 
     public void saveUser(User user) throws HibernateException {
+        System.out.println("UserService");
         userDao.saveUser(user);
+    }
+
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
     }
 }

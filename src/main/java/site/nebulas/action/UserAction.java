@@ -36,5 +36,4 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
         return SUCCESS;
     }
 
-
 }

@@ -9,6 +9,7 @@ import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.Date;
 import javax.crypto.Cipher;
 
 
@@ -17,7 +18,7 @@ public class RASUtil {
 	public static String src="RSA 加密字符串"; 
 	
 	public static void main(String[] args) {
-		 try {  
+		 try {
 		      //1.初始化秘钥  
 		     KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");  
 		     //秘钥长度  
@@ -57,6 +58,6 @@ public class RASUtil {
 		    } catch (Exception e) {  
 		     // TODO Auto-generated catch block  
 		     e.printStackTrace();  
-		 } 
+		 }
 	}
 }

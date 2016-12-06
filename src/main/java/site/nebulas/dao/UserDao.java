@@ -16,18 +16,8 @@ import site.nebulas.bean.User;
 @Transactional
 public class UserDao extends HibernateDaoSupport{
 
-    @Autowired
-    private SessionFactory sessionFactory;
-
-    //获取和当前线程绑定的Seesion
-    private Session getSession(){
-        return sessionFactory.getCurrentSession();
-    }
-
-    public void saveUser(User user) throws HibernateException {
-        User user1 = new User();
-        user1.setName("hahaha");
+    public void saveUser(User user) {
         System.out.println("UserDao");
-        this.getSession().save(user1);
+        this.getHibernateTemplate().save(user);
     }
 }

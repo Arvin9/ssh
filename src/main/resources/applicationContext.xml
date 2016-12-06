@@ -57,8 +57,10 @@
         <property name="mappingLocations" value="classpath:site/nebulas/bean/*.hbm.xml"></property>
 -->
         <property name="packagesToScan">
-            <value>site.nebulas.bean.*</value>
+            <value>site.nebulas.bean</value>
         </property>
+
+
     </bean>
 
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
@@ -66,13 +68,18 @@
     </bean>
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
+    <bean id="userAction" class="site.nebulas.action.UserAction" scope="prototype">
+        <property name="userService" ref="userService"></property>
+    </bean>
+
+    <bean id="userService" class="site.nebulas.service.UserService">
+        <property name="userDao" ref="userDao"></property>
+    </bean>
 
     <bean id="userDao" class="site.nebulas.dao.UserDao">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
-    <bean id="userService" class="site.nebulas.service.UserService">
-        <property name="userDao" ref="userDao"></property>
-    </bean>
+
 
 </beans>
 

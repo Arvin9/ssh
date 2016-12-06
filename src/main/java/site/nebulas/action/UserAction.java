@@ -20,20 +20,34 @@ import site.nebulas.service.UserService;
 public class UserAction extends ActionSupport implements ModelDriven<User>{
     //模型驱动获取参数
     private User user = new User();
+
     public User getModel() {
         return user;
     }
     //日志
     private Logger log = LoggerFactory.getLogger(UserAction.class);
-    @Autowired
+
     private UserService userService;
 
-    @Action(value = "login", results = { @Result(name = "success", location = "/jsp/main.jsp") })
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
+    @Action(value = "login", results = { @Result(name = "success", location = "/jsp/login.jsp") })
     public String login(){
-        log.info("login user");
-        user.setName("hhhhh");
+        log.info("login");
+        return SUCCESS;
+    }
+    @Action(value = "signIn", results = { @Result(name = "success", location = "/jsp/main.jsp") })
+    public String signIn(){
+        log.info("sign in");
+        log.info(user.getName());
+        log.info(user.getPassword());
         userService.saveUser(user);
         return SUCCESS;
     }
+
+
+
 
 }

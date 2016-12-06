@@ -11,15 +11,16 @@ import site.nebulas.dao.UserDao;
  */
 @Service
 public class UserService {
-    @Autowired
     private UserDao userDao;
+
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     public void saveUser(User user) throws HibernateException {
         System.out.println("UserService");
         userDao.saveUser(user);
     }
 
-    public void setUserDao(UserDao userDao) {
-        this.userDao = userDao;
-    }
+
 }

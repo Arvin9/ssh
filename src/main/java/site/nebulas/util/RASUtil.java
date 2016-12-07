@@ -56,8 +56,7 @@ public class RASUtil {
 		     result = cipher.doFinal(result);  
 		     System.out.println("私钥加密，公钥解密----解密:"+new String(result));  
 		    } catch (Exception e) {  
-		     // TODO Auto-generated catch block  
-		     e.printStackTrace();  
+		     e.printStackTrace();
 		 }
 	}
 }

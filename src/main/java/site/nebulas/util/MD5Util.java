@@ -10,7 +10,8 @@ import java.security.NoSuchAlgorithmException;
 public class MD5Util {
     public static void main(String[] args) {
         String str = "314159";
-        System.out.println(encode(str));
+        System.out.println("待加密串：" + str);
+        System.out.println("加密结果：" + encode(str));
     }
 
     public static String encode(String str){
@@ -25,5 +26,4 @@ public class MD5Util {
         }
         return res;
     }
-
 }

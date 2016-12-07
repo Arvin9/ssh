@@ -36,15 +36,7 @@ public class AESUtil {
             cipher.init(Cipher.DECRYPT_MODE,key);
             result = cipher.doFinal(result);
             System.out.println("解密结果：" + new String(result));
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (InvalidKeyException e) {
-            e.printStackTrace();
-        } catch (NoSuchPaddingException e) {
-            e.printStackTrace();
-        } catch (BadPaddingException e) {
-            e.printStackTrace();
-        } catch (IllegalBlockSizeException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

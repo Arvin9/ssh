@@ -69,17 +69,7 @@ public class RSA {
             cipher.init(Cipher.DECRYPT_MODE,privateKey);
             restlt = cipher.doFinal(restlt);
             System.out.println("公钥加密、私钥解密-----解密结果："+ new String(restlt));
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (InvalidKeySpecException e) {
-            e.printStackTrace();
-        } catch (InvalidKeyException e) {
-            e.printStackTrace();
-        } catch (NoSuchPaddingException e) {
-            e.printStackTrace();
-        } catch (BadPaddingException e) {
-            e.printStackTrace();
-        } catch (IllegalBlockSizeException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

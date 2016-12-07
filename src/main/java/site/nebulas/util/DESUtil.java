@@ -15,7 +15,6 @@ import java.security.spec.InvalidKeySpecException;
 public class DESUtil {
     private static String str = "hello";
     public static void main(String[] args) {
-
         try {
             //生成key
             KeyGenerator keyGenerator = KeyGenerator.getInstance("DES");
@@ -38,17 +37,7 @@ public class DESUtil {
             cipher.init(Cipher.DECRYPT_MODE,key);
             result = cipher.doFinal(result);
             System.out.println("解密结果：" + new String(result));
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (InvalidKeyException e) {
-            e.printStackTrace();
-        } catch (InvalidKeySpecException e) {
-            e.printStackTrace();
-        } catch (NoSuchPaddingException e) {
-            e.printStackTrace();
-        } catch (BadPaddingException e) {
-            e.printStackTrace();
-        } catch (IllegalBlockSizeException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import site.nebulas.bean.User;
 import site.nebulas.dao.UserDao;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2016/12/3.
  */
@@ -23,4 +25,7 @@ public class UserService {
     }
 
 
+    public List<User> getUserInfo(User user) {
+        return userDao.getUserInfo(user);
+    }
 }

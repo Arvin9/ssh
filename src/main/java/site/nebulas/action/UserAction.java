@@ -12,10 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import site.nebulas.bean.User;
 import site.nebulas.service.UserService;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2016/12/3.
  */
-@ParentPackage("struts-default")
+
+@ParentPackage("json-default")
 @Namespace("/")
 public class UserAction extends ActionSupport implements ModelDriven<User>{
     //模型驱动获取参数
@@ -35,7 +38,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 
     @Action(value = "login", results = { @Result(name = "success", location = "/jsp/login.jsp") })
     public String login(){
-        log.info("login");
+        log.info("login Page");
         return SUCCESS;
     }
     @Action(value = "signIn", results = { @Result(name = "success", location = "/jsp/main.jsp") })
@@ -46,8 +49,20 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
         userService.saveUser(user);
         return SUCCESS;
     }
+    private List<User> userList;
+    public List<User> getUserList() {
+        return userList;
+    }
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
 
-
-
-
+    @Action(value = "getUserInfo",results = {@Result(type="json",params={"root","userList"})})
+    public String getUserInfo(){
+        log.info("getUserInfo");
+        log.info(user.getName());
+        log.info(user.getPassword());
+        userList = userService.getUserInfo(user);
+        return SUCCESS;
+    }
 }

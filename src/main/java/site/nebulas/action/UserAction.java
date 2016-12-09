@@ -65,4 +65,11 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
         userList = userService.getUserInfo(user);
         return SUCCESS;
     }
+
+    @Action(value = "saveUser",results = {@Result(type="json")})
+    public String saveUser(){
+        log.info("saveUser" + user.toString());
+        userService.saveUser(user);
+        return SUCCESS;
+    }
 }

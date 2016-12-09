@@ -22,6 +22,18 @@ public class User {
     private String password;//密码
     @Column(length = 20)
     private String createTime;//用户创建时间
+    @Column(length = 32)
+    private String department;//所属部门
+    @Column(length = 32)
+    private String duty;//职务
+    @Column(length = 1)
+    private Integer sex;//性别
+    @Column(length = 32)
+    private String nativePlace;//籍贯
+    @Column(length = 11)
+    private String phoneNumber;//电话号码
+    @Column(length = 32)
+    private String email;//邮箱
 
     public User() {
     }
@@ -73,5 +85,53 @@ public class User {
                 ", password='" + password + '\'' +
                 ", createTime='" + createTime + '\'' +
                 '}';
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getDuty() {
+        return duty;
+    }
+
+    public void setDuty(String duty) {
+        this.duty = duty;
+    }
+
+    public Integer getSex() {
+        return sex;
+    }
+
+    public void setSex(Integer sex) {
+        this.sex = sex;
+    }
+
+    public String getNativePlace() {
+        return nativePlace;
+    }
+
+    public void setNativePlace(String nativePlace) {
+        this.nativePlace = nativePlace;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
